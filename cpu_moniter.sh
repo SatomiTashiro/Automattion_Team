@@ -7,7 +7,7 @@ OK=0
 WG=1
 NG=2
 D_NUM=`expr $NUM - 1`
-VMSTAT_IDOL=`vmstat 1 $NUM | awk 'NR>3 {sum+=$15} END {print sum}'`
+VMSTAT_IDOL=`vmstat 1 $NUM | awk 'NR>4 {sum+=$15} END {print sum}'`
 VMSTAT_IDOL=`expr $VMSTAT_IDOL / $D_NUM`
 CPU_RESOURCE=`expr 100 - $VMSTAT_IDOL`
 if [ $VMSTAT_IDOL -le $CRIT ]; then
